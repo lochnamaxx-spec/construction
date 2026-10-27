@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chandana Construction</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Barlow:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+
+:root{--navy:#061a40;--blue:#0b5fff;--red:#e32b2b;--orange:#ff9f1c;--concrete:#e6e7eb;--ink:#101828}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Barlow,system-ui,sans-serif;color:var(--ink);background:var(--concrete);line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:'Barlow Condensed',Impact,sans-serif;line-height:1.05;letter-spacing:.2px}
+h1{font-size:clamp(44px,7vw,84px)}h2{font-size:clamp(32px,4.5vw,52px)}h3{font-size:26px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+.top{background:var(--navy);color:#fff;font-size:15px;padding:8px 0}
+.top .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 12px rgba(6,26,64,.12)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:26px;color:var(--navy)}
+.brand img{height:52px;width:auto;border-radius:6px}
+nav{display:flex;gap:28px;font-weight:600}
+nav a{padding:6px 0;border-bottom:3px solid transparent}
+nav a.on,nav a:hover{border-color:var(--red);color:var(--navy)}
+.burger{display:none;background:var(--navy);color:#fff;border:0;padding:10px 14px;font-size:20px;border-radius:6px}
+
+.btn{display:inline-block;padding:13px 26px;border-radius:6px;font-weight:600;border:2px solid transparent;cursor:pointer;font:600 17px Barlow,sans-serif}
+.btn.p{background:var(--red);color:#fff}.btn.p:hover{background:#c41f1f}
+.btn.o{border-color:#fff;color:#fff}.btn.o:hover{background:#fff;color:var(--navy)}
+
+.hero{background:linear-gradient(rgba(6,26,64,.9),rgba(6,26,64,.94)),
+ repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.07) 39px 40px),
+ repeating-linear-gradient(90deg,transparent 0 39px,rgba(255,255,255,.07) 39px 40px);
+ background-color:var(--navy);color:#fff;padding:110px 0 120px;position:relative}
+.hero:after,.band:before{content:"";position:absolute;left:0;right:0;bottom:0;height:14px;
+ background:repeating-linear-gradient(-45deg,var(--orange) 0 18px,var(--navy) 18px 36px)}
+.hero p{max-width:620px;font-size:20px;margin:22px 0 32px;color:#d6def0}
+.hero .btns{display:flex;gap:14px;flex-wrap:wrap}
+.pagehero{padding:80px 0 90px}.pagehero p{margin-bottom:0}
+
+section.s{padding:84px 0}
+.lead{max-width:640px;margin:14px 0 40px;color:#3b4560}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:#fff;border-radius:10px;padding:28px;border-left:6px solid var(--blue)}
+.card:nth-child(3n+2){border-color:var(--orange)}.card:nth-child(3n){border-color:var(--red)}
+.card h3{margin-bottom:8px;color:var(--navy)}.card p{color:#3b4560;font-size:16px}
+.card ul{margin:12px 0 0 18px;font-size:16px;color:#3b4560}
+.stats{background:var(--navy);color:#fff;padding:60px 0}
+.stats .grid{text-align:center}
+.stats b{font:700 64px 'Barlow Condensed',sans-serif;color:var(--orange);display:block;line-height:1}
+.band{background:var(--blue);color:#fff;padding:64px 0 76px;position:relative}
+.band .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.vm{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:40px}
+.vm div{border-radius:10px;padding:32px}.vm .a{background:var(--navy);color:#fff}.vm .b{background:#fff}
+.year{font:700 40px 'Barlow Condensed',sans-serif;color:var(--blue)}
+
+.proj{border-radius:10px;overflow:hidden;background:#fff}
+.proj .img{height:190px;display:flex;align-items:flex-end;padding:14px;color:#fff;font:700 22px 'Barlow Condensed',sans-serif}
+.proj:nth-child(1) .img{background:linear-gradient(135deg,#0b5fff,#061a40)}
+.proj:nth-child(2) .img{background:linear-gradient(135deg,#ff9f1c,#e32b2b)}
+.proj:nth-child(3) .img{background:linear-gradient(135deg,#5b667a,#101828)}
+.proj:nth-child(4) .img{background:linear-gradient(135deg,#e32b2b,#061a40)}
+.proj:nth-child(5) .img{background:linear-gradient(135deg,#0b5fff,#ff9f1c)}
+.proj:nth-child(6) .img{background:linear-gradient(135deg,#101828,#0b5fff)}
+.proj .t{padding:18px 22px;font-size:16px;color:#3b4560}
+
+.two{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.info p{margin-bottom:18px}.info b{display:block;color:var(--navy);font:700 24px 'Barlow Condensed',sans-serif}
+form{background:#fff;padding:30px;border-radius:10px;display:grid;gap:14px}
+input,textarea{width:100%;padding:13px;border:1px solid #c5cad6;border-radius:6px;font:inherit}
+textarea{min-height:130px}
+input:focus,textarea:focus,.btn:focus-visible,a:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+
+footer{background:var(--navy);color:#c9d3ea;padding:56px 0 24px}
+footer .grid{grid-template-columns:2fr 1fr 1.4fr}
+footer h3{color:#fff;margin-bottom:10px;font-size:22px}
+footer a{display:block;margin-bottom:6px}footer a:hover{color:var(--orange)}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:32px;padding-top:18px;font-size:14px}
+.wa{position:fixed;right:22px;bottom:22px;background:#25d366;color:#fff;padding:14px 20px;border-radius:40px;font-weight:600;z-index:40;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+
+.pg{display:none}.pg.on{display:block}
+
+#loader{position:fixed;inset:0;z-index:999;display:grid;place-items:center;align-content:center;background:radial-gradient(circle at 50% 42%,#0b2a63 0,#020b18 62%);visibility:hidden;opacity:0;transition:opacity .4s ease,visibility 0s .4s}
+#loader.show{visibility:visible;opacity:1;transition:opacity .3s ease}
+#loader .box{position:relative;width:min(380px,72vw);display:grid;justify-items:center}
+#loader .lg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 30px rgba(11,95,255,.35))}
+#loader .sh{width:55%;height:14px;margin-top:10px;border-radius:50%;background:rgba(0,0,0,.6);filter:blur(6px)}
+#loader .ring{position:absolute;left:50%;bottom:2px;width:60px;height:14px;margin-left:-30px;border:3px solid rgba(255,159,28,.85);border-radius:50%;opacity:0}
+#loader i{display:block;position:relative;width:min(260px,60vw);height:5px;margin-top:34px;background:rgba(255,255,255,.18);border-radius:3px;overflow:hidden}
+#loader i:after{content:"";position:absolute;top:0;bottom:0;width:40%;background:#ff9f1c;border-radius:3px;animation:run 1s infinite ease-in-out}
+#loader.show .lg{animation:drop 1s both,glow 2s 1s ease-in-out infinite}
+#loader.show .sh{animation:shd 1s both}
+#loader.show .ring{animation:shock .7s .42s ease-out both}
+@keyframes run{0%{left:-40%}100%{left:100%}}
+@keyframes drop{0%{transform:translateY(-95vh) rotate(-9deg);animation-timing-function:cubic-bezier(.55,0,1,.6)}
+ 45%{transform:translateY(0) rotate(0);animation-timing-function:ease-out}
+ 65%{transform:translateY(-34px) rotate(1deg);animation-timing-function:ease-in}
+ 80%{transform:translateY(0);animation-timing-function:ease-out}
+ 90%{transform:translateY(-9px);animation-timing-function:ease-in}
+ 100%{transform:none}}
+@keyframes glow{50%{filter:drop-shadow(0 12px 38px rgba(255,159,28,.6))}}
+@keyframes shd{0%{transform:scale(.2);opacity:0}45%{transform:scale(1);opacity:1}65%{transform:scale(.7)}80%{transform:scale(1)}90%{transform:scale(.88)}100%{transform:scale(1);opacity:1}}
+@keyframes shock{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(5)}}
+@media(max-width:860px){nav{display:none;position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;padding:18px 24px;gap:14px;box-shadow:0 8px 14px rgba(0,0,0,.12)}
+ nav.open{display:flex}.burger{display:block}footer .grid{grid-template-columns:1fr}.top .wrap span:last-child{display:none}}
+@media(prefers-reduced-motion:reduce){#loader,#loader i:after{transition:none;animation:none}}
+
+.btn{transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,.25)}
+nav a{transition:border-color .2s,color .2s}
+.card,.proj{transition:transform .28s ease,box-shadow .28s ease}
+.card:hover,.proj:hover{transform:translateY(-8px);box-shadow:0 16px 30px rgba(6,26,64,.2)}
+.proj .img{transition:transform .5s ease}.proj:hover .img{transform:scale(1.06)}
+.hero{background-position:0 0,0 0,0 0;animation:grid 8s linear infinite}
+.hero[style]{animation:none}
+@keyframes grid{to{background-position:0 0,0 40px,40px 0}}
+.pg.on .hero h1,.pg.on .hero p,.pg.on .hero .btns{animation:up .8s .4s cubic-bezier(.2,.7,.2,1) backwards}
+.pg.on .hero p{animation-delay:.55s}.pg.on .hero .btns{animation-delay:.7s}
+@keyframes up{from{opacity:0;transform:translateY(32px)}}
+.hero:before{content:"";position:absolute;right:9%;top:16%;width:210px;height:210px;border:14px solid rgba(255,159,28,.28);transform:rotate(12deg);animation:float 7s ease-in-out infinite}
+.hero .wrap{position:relative;z-index:1}
+.hero .wrap:before{content:"";position:absolute;right:20%;bottom:-40px;width:80px;height:80px;background:rgba(227,43,43,.35);animation:float 5s 1s ease-in-out infinite reverse}
+@keyframes float{50%{transform:translateY(-22px) rotate(20deg)}}
+.hero:after,.band:before{background-size:50.91px 14px;animation:stripe 1.4s linear infinite}
+@keyframes stripe{to{background-position:50.91px 0}}
+.rv{opacity:0}
+.rv.in{opacity:1;animation:up .8s var(--d,0s) cubic-bezier(.2,.7,.2,1) backwards}
+.wa{animation:pulse 2.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media(max-width:860px){.hero:before,.hero .wrap:before{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1}}
+
+header{background:rgba(255,255,255,.75);-webkit-backdrop-filter:blur(16px) saturate(180%);backdrop-filter:blur(16px) saturate(180%)}
+#sp{position:fixed;top:0;left:0;height:4px;width:0;background:var(--orange);z-index:60}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.gp{position:relative;isolation:isolate;border-radius:26px;overflow:hidden;min-height:380px;grid-column:span 2;background:#061a40;box-shadow:0 14px 34px rgba(6,26,64,.22);--a:#0b5fff;--b:#061a40}
+.bento .gp:nth-child(1){grid-column:span 4}
+.gp:nth-child(2){--a:#ff9f1c;--b:#e32b2b}.gp:nth-child(3){--a:#5b667a;--b:#101828}.gp:nth-child(4){--a:#e32b2b;--b:#061a40}.gp:nth-child(5){--a:#0b5fff;--b:#ff9f1c}
+.gp:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%);z-index:1;pointer-events:none}
+.gp>.ph,.gi>.ph{position:absolute;left:0;right:0;top:-18%;bottom:-18%;translate:0 var(--py,0px);transition:scale .7s ease;
+ background:radial-gradient(circle at 72% 18%,rgba(255,255,255,.28),transparent 42%),linear-gradient(135deg,var(--a),var(--b));background-size:cover}
+.gp:hover>.ph,.gi:hover>.ph{scale:1.06}
+.gl{position:absolute;left:16px;right:16px;bottom:16px;z-index:2;padding:16px 18px;border-radius:22px;color:#fff;
+ background:linear-gradient(135deg,rgba(255,255,255,.24),rgba(255,255,255,.06));-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);
+ border:1px solid rgba(255,255,255,.38);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 30px rgba(0,0,0,.28)}
+.gl .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chip{background:rgba(255,255,255,.9);color:#101828;font:600 13px Barlow,sans-serif;padding:3px 12px;border-radius:99px}
+.chip.g{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.gl h3{font-size:30px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.gl .spec{font-size:14px;opacity:.92;margin-top:4px}
+.gl .desc{max-height:0;opacity:0;overflow:hidden;margin:0;font-size:15px;color:#fff;transition:max-height .5s ease,opacity .4s ease,margin .4s}
+.gp:hover .desc,body.editing .gp .desc{max-height:160px;opacity:1;margin-top:8px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;grid-auto-flow:dense;gap:14px}
+.gi{position:relative;isolation:isolate;border-radius:18px;overflow:hidden;background:#061a40;cursor:zoom-in;--a:#0b5fff;--b:#061a40}
+.gi:nth-child(3n+2){--a:#ff9f1c;--b:#e32b2b}.gi:nth-child(3n){--a:#5b667a;--b:#101828}
+.gal .gi:nth-child(1){grid-column:span 2;grid-row:span 2}.gal .gi:nth-child(4){grid-row:span 2}.gal .gi:nth-child(6){grid-column:span 2}
+body.editing .gi{cursor:default}
+body.editing .gp>.ph:not(.has):before,body.editing .gi>.ph:not(.has):before{content:"＋ Add photo (🖼 button or drop a file)";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70%;text-align:center;color:#fff;font-weight:600;opacity:.9}
+.pill{background:#fff0d1;color:#a85d00;font-weight:600;font-size:13px;padding:2px 10px;border-radius:99px;margin-right:6px;white-space:nowrap}
+.clients{background:radial-gradient(circle at 12% 18%,rgba(11,95,255,.6),transparent 42%),radial-gradient(circle at 88% 85%,rgba(227,43,43,.45),transparent 40%),var(--navy);color:#fff;padding:84px 0}
+.clients .lead{color:#c9d3ea}
+.cl{border-radius:24px;padding:28px 20px;text-align:center;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.05));-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid rgba(255,255,255,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 12px 28px rgba(0,0,0,.25)}
+.cl .ph{position:relative;width:112px;height:112px;border-radius:50%;margin:0 auto 14px;border:3px solid rgba(255,255,255,.65);background:linear-gradient(135deg,var(--orange),var(--red)) center/cover}
+.cl .ph:not(.has):after{content:"★";position:absolute;inset:0;display:grid;place-items:center;font-size:42px;color:rgba(255,255,255,.9)}
+.cl h3{color:#fff;font-size:27px}.cl .rl{color:#ffd28a;font-size:15px}
+.cl q{display:block;margin-top:10px;font-size:15px;color:#d6def0;quotes:none}
+#lb{position:fixed;inset:0;z-index:950;display:none;place-items:center;background:rgba(2,11,24,.8);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);cursor:zoom-out}
+#lb.on{display:grid}#lb div{width:min(1100px,92vw);height:84vh;background:center/contain no-repeat;border-radius:12px}
+#fs{margin:0;font-weight:600;color:var(--navy)}
+@media(max-width:860px){.bento{grid-template-columns:1fr}.bento .gp,.bento .gp:nth-child(1){grid-column:auto;min-height:340px}
+ .gal{grid-template-columns:repeat(2,1fr)}.gal .gi:nth-child(n){grid-column:auto;grid-row:auto}.gal .gi:nth-child(1){grid-column:span 2}}
+
+.bookwrap{display:grid;grid-template-columns:minmax(240px,360px) 1fr;gap:64px;align-items:center}
+.bookwrap .lead{margin-bottom:26px}
+.bkc{padding:20px 0}
+.book{position:relative;display:block;width:min(280px,70vw);aspect-ratio:3/4;margin:0 auto;border-radius:6px 14px 14px 6px;transform:perspective(900px) rotateY(-24deg);transition:transform .5s ease;box-shadow:-16px 20px 36px rgba(6,26,64,.38),inset -4px 0 0 rgba(255,255,255,.25)}
+.book:hover{transform:perspective(900px) rotateY(-8deg) translateY(-8px)}
+.book .ph{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 70% 15%,rgba(11,95,255,.55),transparent 50%),linear-gradient(160deg,#0b2a63,#020b18) center/cover}
+.book:before{content:"";position:absolute;left:0;top:0;bottom:0;width:20px;border-radius:6px 0 0 6px;background:linear-gradient(90deg,rgba(0,0,0,.5),rgba(255,255,255,.2) 45%,rgba(0,0,0,.2));z-index:2}
+.book:after{content:"";position:absolute;left:0;right:0;bottom:0;height:12px;border-radius:0 0 14px 6px;background:repeating-linear-gradient(-45deg,var(--orange) 0 14px,var(--navy) 14px 28px);z-index:2}
+.book .lgo{position:absolute;left:50%;top:20%;width:64%;transform:translateX(-50%);z-index:1}
+.book .bt{position:absolute;left:0;right:0;bottom:16%;text-align:center;color:#fff;font:700 38px/1 'Barlow Condensed',sans-serif;letter-spacing:1px;text-shadow:0 2px 10px rgba(0,0,0,.5);z-index:1}
+.book .ph.has~.lgo,.book .ph.has~.bt{display:none}
+.vgrid{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.vid{border-radius:24px;padding:14px 14px 22px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.05));-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid rgba(255,255,255,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 12px 28px rgba(0,0,0,.25)}
+.vf{aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.vf iframe{width:100%;height:100%;border:0;display:block}
+.vp{height:100%;display:grid;place-content:center;gap:6px;text-align:center;color:#fff;background:linear-gradient(135deg,#0b2a63,#020b18)}
+.vp span{width:64px;height:64px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font-size:26px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)}
+.vp small{display:none;opacity:.8}body.editing .vp small{display:block}
+.vid h3{color:#fff;margin:16px 8px 4px}.vid p{color:#d6def0;margin:0 8px;font-size:16px}
+@media(max-width:860px){.bookwrap{grid-template-columns:1fr;text-align:center;gap:20px}}
+
+.tr{display:flex;align-items:center;gap:18px}
+.soc{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.soc a{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);transition:transform .2s,background .2s,color .2s}
+.soc a:hover{transform:translateY(-3px);background:var(--orange);color:var(--navy)}
+.soc svg{width:17px;height:17px}
+.soc.lg a{width:40px;height:40px}.soc.lg svg{width:21px;height:21px}
+.soc.lt a{color:var(--navy);background:#fff;border-color:#c5cad6}
+.soc a:not([href]){display:none}
+footer .soc{margin-top:14px}
+body.editing .soc a:not([href]){display:grid;opacity:.5;outline:1px dashed #ff9f1c;outline-offset:2px}
+#ed-so label{display:grid;gap:2px;font-size:12px;margin-bottom:6px}
+#ed-so input{padding:7px;border:0;border-radius:5px;font:inherit;width:100%}
+
+#go{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 40%,#0b2a63 0,#020b18 65%);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s .3s}
+#go.on{opacity:1;visibility:visible;transition:opacity .3s ease}
+#go:before{content:"";position:absolute;inset:0;opacity:.75;background:radial-gradient(1.5px 1.5px at 12% 22%,#fff,transparent),radial-gradient(1.5px 1.5px at 78% 14%,#fff,transparent),radial-gradient(2px 2px at 88% 62%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 80%,#fff,transparent),radial-gradient(2px 2px at 60% 90%,#fff,transparent),radial-gradient(1.5px 1.5px at 45% 10%,#fff,transparent),radial-gradient(1.5px 1.5px at 6% 60%,#fff,transparent)}
+.gcard{position:relative;width:min(460px,90vw);text-align:center;padding:30px 28px 30px;border-radius:28px;color:#fff;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.05));-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 24px 60px rgba(0,0,0,.5);transition:opacity .35s,transform .35s}
+#go.fly .gcard{opacity:0;transform:scale(.9) translateY(20px)}
+.rk-i{width:48px;height:82px;margin:0 auto 8px;animation:bob 1.6s ease-in-out infinite}
+.rk-i svg,#rk svg{width:100%;height:100%;display:block;overflow:visible}
+@keyframes bob{50%{transform:translateY(-8px) rotate(5deg)}}
+.fl{transform-origin:32px 74px;animation:flick .14s infinite alternate}
+@keyframes flick{from{transform:scaleY(.78)}to{transform:scaleY(1.18)}}
+.gcard h2{font-size:clamp(30px,6vw,40px);color:#fff}
+.gs{margin:10px 0 4px;color:#c9d3ea;font-size:16px}
+.gr{position:relative;width:120px;height:120px;margin:10px auto 20px}
+.gr svg{width:100%;height:100%;transform:rotate(-90deg)}
+.gr circle{fill:none;stroke-width:8}.gr .bg{stroke:rgba(255,255,255,.18)}
+.gr .fg{stroke:var(--orange);stroke-linecap:round;stroke-dasharray:327;stroke-dashoffset:0}
+#go.on:not(.fly) .gr .fg{animation:cd 5s linear forwards}
+@keyframes cd{to{stroke-dashoffset:327}}
+.gr span{position:absolute;inset:0;display:grid;place-items:center;font:700 56px 'Barlow Condensed',sans-serif}
+#rk{position:fixed;left:-170px;bottom:-190px;width:84px;height:144px;opacity:0;pointer-events:none}
+#rk .tl{position:absolute;left:50%;top:92%;width:14px;height:520px;margin-left:-7px;border-radius:7px;background:linear-gradient(to bottom,rgba(255,159,28,.95),rgba(255,159,28,0));filter:blur(3px)}
+#go.fly #rk{opacity:1;animation:fly 1.5s cubic-bezier(.45,.05,.85,.55) forwards}
+@keyframes fly{from{transform:translate(0,0) rotate(var(--rot))}to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot))}}
+.fbtns{display:flex;gap:12px;flex-wrap:wrap}
+.btn.wb{background:#25d366;color:#fff}.btn.wb:hover{background:#1ebe5b}
+.top a b{color:#fff}
+#go-x{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.65);color:#fff}
+#go-x:hover{background:#fff;color:var(--navy)}
+.yp{position:relative;display:block;width:100%;height:100%;padding:0;border:0;background:#000;cursor:pointer}
+.yp img{width:100%;height:100%;object-fit:cover;display:block}
+.yp span{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.55);transition:transform .2s,background .2s}
+.yp span:after{content:"";margin-left:6px;border-style:solid;border-width:12px 0 12px 20px;border-color:transparent transparent transparent #fff}
+.yp:hover span,.yp:focus-visible span{transform:scale(1.1);background:rgba(227,43,43,.85)}
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true" ><div class="box"><img class="lg" alt="" src="images/img-3.png"><div class="sh"></div><div class="ring"></div></div><i></i></div>
+<div id="sp"></div>
+<div id="go" role="dialog" aria-modal="true" aria-labelledby="go-t"><div class="gcard">
+  <div class="rk-i"><svg viewBox="0 0 64 110" aria-hidden="true"><path class="fl" d="M24 74Q32 110 40 74Z" fill="#ff9f1c"></path><path class="fl" d="M27 74Q32 96 37 74Z" fill="#ffe14d"></path><path d="M20 54L7 78l13-4zM44 54l13 24-13-4z" fill="#ff9f1c"></path><path d="M32 2C47 18 49 46 45 74H19c-4-28-2-56 13-72z" fill="#fff"></path><path d="M32 2c6 7 10 16 11 25H21c1-9 5-18 11-25z" fill="#e32b2b"></path><circle cx="32" cy="45" r="7.5" fill="#0b5fff" stroke="#061a40" stroke-width="3"></circle><rect x="24" y="72" width="16" height="5" rx="2" fill="#061a40"></rect></svg></div>
+  <h2 id="go-t">Are You Ready To Build Your Dream?</h2>
+  <p class="gs">Taking you to <b id="go-n">the link</b> in</p>
+  <div class="gr"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="52"></circle><circle class="fg" cx="60" cy="60" r="52"></circle></svg><span id="go-c">5</span></div>
+  <button id="go-x" class="btn o" type="button">Cancel</button>
+</div><div id="rk"><svg viewBox="0 0 64 110" aria-hidden="true"><path class="fl" d="M24 74Q32 110 40 74Z" fill="#ff9f1c"></path><path class="fl" d="M27 74Q32 96 37 74Z" fill="#ffe14d"></path><path d="M20 54L7 78l13-4zM44 54l13 24-13-4z" fill="#ff9f1c"></path><path d="M32 2C47 18 49 46 45 74H19c-4-28-2-56 13-72z" fill="#fff"></path><path d="M32 2c6 7 10 16 11 25H21c1-9 5-18 11-25z" fill="#e32b2b"></path><circle cx="32" cy="45" r="7.5" fill="#0b5fff" stroke="#061a40" stroke-width="3"></circle><rect x="24" y="72" width="16" height="5" rx="2" fill="#061a40"></rect></svg><i class="tl"></i></div></div>
+<div id="lb" ><div style="background-image: url(&quot;images/img-4.jpg&quot;);"></div></div>
+
+
+<div class="top"><div class="wrap">
+  <span>Call or WhatsApp <a href="https://wa.me/94715927591" target="_blank" rel="noopener"><b>+94 71 592 7591</b></a></span>
+  <div class="tr"><span>1chandanaconstruction@gmail.com</span><div class="soc"><a data-soc="li" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener" href="https://linkedin.com/in/chandana-construction-95525b3a9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><text x="12" y="17.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="15.5" fill="currentColor" stroke="none">in</text></svg></a><a data-soc="gm" aria-label="Gmail" title="Gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=1chandanaconstruction%40gmail.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M3.5 7.5l8.5 6 8.5-6"></path></svg></a><a data-soc="fb" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener" href="https://www.facebook.com/share/1NG9a86DMS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><text x="12.5" y="19" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="21" fill="currentColor" stroke="none">f</text></svg></a><a data-soc="yt" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener" href="https://www.youtube.com/@CHANDANA_CONSTRUCTION"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4.5"></rect><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor"></path></svg></a><a data-soc="tt" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener" href="https://www.tiktok.com/@chandana_construction1?is_from_webapp=1&amp;sender_device=pc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.3a3.4 3.4 0 1 1-3.4-3.4"></path><path d="M14 3c.3 2.5 2 4.2 4.6 4.4"></path></svg></a></div></div>
+</div></div>
+
+<header><div class="wrap">
+  <a class="brand" href="#home" data-link=""><img alt="" src="images/img-5.png"><span>Chandana Construction</span></a>
+  <button class="burger" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+  <nav>
+    <a href="#home" data-link="" >Home</a>
+    <a href="#about" data-link="" >About Us</a>
+    <a href="#services" data-link="" >Services</a>
+    <a href="#projects" data-link="" >Projects</a>
+    <a href="#contact" data-link="" >Contact Us</a>
+  </nav>
+</div></header>
+
+<main>
+
+<div class="pg" id="home">
+  <section class="hero" style="background: linear-gradient(rgba(6, 26, 64, 0.82), rgba(6, 26, 64, 0.9)), url(&quot;images/img-6.jpg&quot;) center center / cover;"><div class="wrap">
+    <h1>BUILDING DREAMS INTO REALITY.</h1>
+    <p>Chandana Construction - 20 Years Of Trust.We craft custom luxury homes across SriLanka that are build for genarations,not just seasons</p>
+    <div class="btns"><a class="btn p" href="#contact" data-link="">Get Quote</a><a class="btn o" href="#projects" data-link="">See Our Projects</a></div>
+  </div></section>
+
+  <section class="stats"><div class="wrap grid">
+    <div class="rv"><b>20+</b>Years of experience</div>   
+    <div class="rv"><b>120+</b>Projects completed</div>
+    <div class="rv"><b>3200+</b>Work Hours<br></div>
+  </div></section>
+
+  <section class="s"><div class="wrap">
+    <h2 class="rv">EVERYTHING UNDER ONE ROOF</h2>
+    <p class="lead rv">FROM SKETCH TO KEY</p>
+    <div class="grid">
+      <div class="card rv"><h3>House Construction</h3><p>New family homes built to your plan, budget and timeline.</p></div>
+      <div class="card rv"><h3>Commercial Buildings</h3><p>Shops, offices and warehouses built for daily use.</p></div>
+      <div class="card rv"><h3>Renovation</h3><p>Extensions, repairs and upgrades with minimal disruption.</p></div>
+    </div>
+  </div></section>
+
+  <section class="clients"><div class="wrap">
+    <h2>Trusted by well-known names</h2>
+    <p class="lead">Homes and buildings we have delivered for artists, actors, sportspeople and public figures across Sri Lanka.</p>
+    <div class="grid">
+      <div class="cl rv"><div class="ph has" style="background: url(&quot;images/img-7.jpg&quot;) center center / cover;"></div><h3>Dulaj Jayatillake</h3><div class="rl">Actor · Singer</div><q><br></q></div>
+      <div class="cl rv"><div class="ph has" style="background: url(&quot;images/img-8.jpg&quot;) center center / cover;"></div><h3>Muttiah Muralitharan</h3><div class="rl">Cricket Coach</div><q><br></q></div>
+      <div class="cl rv"><div class="ph has" style="background: url(&quot;images/img-9.jpg&quot;) center center / cover;"></div><h3>MAKE Architecture Studio</h3><div class="rl">Architect</div><q><br></q></div>
+      <div class="cl rv"><div class="ph has" style="background: url(&quot;images/img-10.jpg&quot;) center center / cover;"></div><h3>MM ISOPRENE&nbsp;</h3><div class="rl">Polymer Manufacture Company</div><q><br></q></div>
+    </div>
+  </div></section>
+
+  <section class="s"><div class="wrap bookwrap">
+    <div class="bkc rv"><a class="book pl" href="company-profile.pdf" target="_blank" rel="noopener" aria-label="Open the company profile book"><div class="ph"></div><img class="lgo" alt="" src="images/img-5.png"><span class="bt">Company<br>Profile</span></a></div>
+    <div><h2 class="rv">&nbsp;company profile</h2><p class="lead rv">Read about who we are, the homes and buildings we have delivered, and how we work.&nbsp;</p><a class="btn p pl" href="company-profile.pdf" target="_blank" rel="noopener">Open the Profile Book ↗</a></div>
+  </div></section>
+
+  <section class="clients"><div class="wrap">
+    <h2>Chandana Construction</h2>
+    <p class="lead">A closer look at our sites and finished homes.</p>
+    <div class="vgrid">
+      <div class="vid rv"><div class="vf" data-yt="QbDxxkzCiX4"><button class="yp" type="button" aria-label="Play video"><img src="https://i.ytimg.com/vi/QbDxxkzCiX4/hqdefault.jpg" alt="" loading="lazy"><span></span></button></div><h3>Video title</h3><p>A short description of what this video shows.</p></div>
+      <div class="vid rv"><div class="vf" data-yt="E-kDz7NwZ5U"><button class="yp" type="button" aria-label="Play video"><img src="https://i.ytimg.com/vi/E-kDz7NwZ5U/hqdefault.jpg" alt="" loading="lazy"><span></span></button></div><h3>Video title</h3><p>A short description of what this video shows.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="rv"><h2>Planning a build?</h2><p>Tell us about your plot and your budget. We will visit the site and send a clear quote.</p></div>
+    <a class="btn o rv" href="#contact" data-link="">Request a Site Visit</a>
+  </div></section>
+</div>
+
+
+<div class="pg" id="about">
+  <section class="hero pagehero" style="background: linear-gradient(rgba(6, 26, 64, 0.82), rgba(6, 26, 64, 0.9)), url(&quot;images/img-6.jpg&quot;) center center / cover;"><div class="wrap">
+    <h1>Quality is not an act,<div>it's our habit.</div></h1>
+    <p>Chandana Construction has delivered homes and buildings across Sri Lanka with honest pricing and careful workmanship.</p> 
+  </div></section>
+  <section class="s"><div class="wrap">
+    <h2 class="rv">Our journey</h2>
+    <p class="lead rv">A short history of the company. Replace the years and text with your own.</p>
+    <div class="grid">
+      <div class="card rv"><div class="year">2010</div><h3>The beginning</h3><p>Started with small house and repair jobs in the local area.</p></div>
+      <div class="card rv"><div class="year">2016</div><h3>Growing the team</h3><p>Took on larger residential projects with a permanent crew.</p></div>
+      <div class="card rv"><div class="year">2024</div><h3>Commercial work</h3><p>Began building shops, offices and multi-storey buildings.</p></div>
+    </div>
+    <div class="vm">
+      <div class="a rv"><h3>Our vision</h3><p>"Build For Genaration"</p></div>
+      <div class="b rv"><h3>Our mission</h3><p>“To deliver high-quality, reliable, and costeffective construction while ensuring client satisfaction, professional excellence, and lasting value for generations.”</p></div>
+    </div>
+  </div></section>
+</div>
+
+
+<div class="pg" id="services">
+  <section class="hero pagehero" style="background: linear-gradient(rgba(6, 26, 64, 0.82), rgba(6, 26, 64, 0.9)), url(&quot;images/img-6.jpg&quot;) center center / cover;"><div class="wrap">
+    <h1>Everything from<br>foundation to finish.</h1>
+    <p>Choose a single service or let us manage the whole build.</p>
+  </div></section>
+  <section class="s"><div class="wrap"><div class="grid">
+    <div class="card rv"><h3>House Construction</h3><p>Complete home building.</p><ul><li>Design and planning support</li><li>Foundation to roof</li><li>Interior and exterior finishing</li></ul></div>
+    <div class="card rv"><h3>Commercial Buildings</h3><p>Built around how your business works.</p><ul><li>Shops and offices</li><li>Warehouses and factories</li><li>Fast, phased handover</li></ul></div>
+    
+    <div class="card rv"><h3>Roads &amp; Boundary Works</h3><p>Site works around the building.</p><ul><li>Boundary walls and gates</li><li>Paving and drainage</li><li>Land levelling</li></ul></div>
+    <div class="card rv"><h3>Renovation &amp; Extensions</h3><p>Upgrade what you already own.</p><ul><li>Room and floor additions</li><li>Roofing and structural repair</li><li>Kitchen and bathroom remodels</li></ul></div><div class="card rv"><h3>Estimating &amp; BOQ</h3><p>Know the cost before you start.</p><ul><li>Detailed quantity lists</li><li>Material and labour estimates</li><li>Free site visit quote</li></ul></div>
+    <div class="card rv"><h3>Project Management</h3><p>We run the site so you don't have to.</p><ul><li>Weekly progress updates</li><li>Supplier and crew scheduling</li><li>Quality checks at every stage</li></ul></div>
+  </div></div></section>
+</div>
+
+
+<div class="pg" id="projects">
+  <section class="hero pagehero" style="background: linear-gradient(rgba(6, 26, 64, 0.82), rgba(6, 26, 64, 0.9)), url(&quot;images/img-6.jpg&quot;) center center / cover;"><div class="wrap">
+    <h1>Work we are<br>proud of.</h1>
+    <p>Finished homes, a look at our gallery, and the projects we are building right now.</p>
+  </div></section>
+  <section class="s"><div class="wrap">
+    <h2 class="rv">Completed projects</h2>
+    <p class="lead rv">Hover a photo to read more about the house.</p>
+    <div class="bento">
+    <div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-11.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Modern Villa • 2020</span><span class="chip g">Akuregoda</span></div><h3>Tropical Cube House</h3><div class="spec"><br></div><p class="desc">Timber screens and open decks wrapped around a garden courtyard. Replace this with the real story of the house.</p></div></div>
+    <div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-12.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Villa • 2020</span><span class="chip g">Akuregoda</span></div><h3>Tropical Cube House</h3><div class="spec"><br></div><p class="desc"><br></p></div></div><div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-13.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Family Home • 2023</span><span class="chip g">Kalalgoda</span></div><h3>Glass Gable House</h3><div class="spec"><br></div><p class="desc">Glass and steel with warm timber detailing.</p></div></div><div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-14.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Residence • 2023</span><span class="chip g">Kalalgoda</span></div><h3>Glass Gable House</h3><div class="spec"><br></div><p class="desc">Glass and steel with warm timber detailing.</p></div></div><div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-15.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Villa • 2015</span><span class="chip g">Meepe</span></div><h3>Hillside Family Villa</h3><div class="spec"><br></div><p class="desc">Built into the slope with views over the hills.</p></div></div><div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-16.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Villa • 2015</span><span class="chip g">Meepe</span></div><h3>Hillside Family Villa</h3><div class="spec"><br></div><p class="desc">Built into the slope with views over the hills.</p></div></div>
+    
+    
+    <div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-17.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Luxury • 2023</span><span class="chip g">Nawarohala</span></div><h3>Slatted Villa with Pool</h3><div class="spec"><br></div><p class="desc">Teak slats, a long pool and plenty of light.</p></div></div><div class="gp rv"><div class="ph has" style=" background: url(&quot;images/img-18.jpg&quot;) center center / cover;"></div><div class="gl"><div class="chips"><span class="chip">Family Home • 2023</span><span class="chip g">Thalawathugoda</span></div><h3>Hill Country Retreat</h3><div class="spec"><br></div><p class="desc">A relaxed family home with local stone and a red-tile roof.</p></div></div>
+    </div>
+  </div></section>
+  <section class="s" style="padding-top:0"><div class="wrap">
+    <h2 class="rv">Gallery</h2>
+    <p class="lead rv">More from our sites. Tap a photo to view it larger.</p>
+    <div class="gal">
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-19.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-20.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-21.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-22.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-23.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-24.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-25.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-26.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-27.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-28.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-29.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-30.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-31.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-32.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-33.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-34.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-35.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-36.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-37.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-38.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-39.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-40.jpg&quot;) center center / cover;"></div></div>
+    <div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-41.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-42.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-43.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-44.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-45.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-46.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-47.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-48.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-49.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-50.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-51.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-52.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-53.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-54.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-55.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-56.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-57.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-58.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-59.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-60.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-61.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-38.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-62.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-63.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-64.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-56.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-4.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-65.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-66.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-67.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-68.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-69.jpg&quot;) center center / cover;"></div></div><div class="gi rv"><div class="ph has" style=" background: url(&quot;images/img-70.jpg&quot;) center center / cover;"></div></div>
+    </div>
+  </div></section>
+  <section class="s" style="padding-top:0"><div class="wrap">
+    <h2 class="rv">Ongoing projects</h2>
+    <p class="lead rv">What our crews are building at the moment.</p>
+    <div class="grid">
+    <div class="proj rv"><div class="img has" style="background: linear-gradient(rgba(6, 26, 64, 0.15), rgba(6, 26, 64, 0.6)), url(&quot;images/img-60.jpg&quot;) center center / cover;">Maharagama</div><div class="t"><span class="pill">● Ongoing</span>Residential, Maharagama · 55% complete</div></div>
+    <div class="proj rv"><div class="img has" style="background: linear-gradient(rgba(6, 26, 64, 0.15), rgba(6, 26, 64, 0.6)), url(&quot;images/img-71.jpg&quot;) center center / cover;">&nbsp;Koswaththa</div><div class="t"><span class="pill">● Ongoing</span>Commercial, Koswaththa · 29% complete</div></div><div class="proj rv"><div class="img has" style="background: linear-gradient(rgba(6, 26, 64, 0.15), rgba(6, 26, 64, 0.6)), url(&quot;images/img-72.jpg&quot;) center center / cover;">Kadana</div><div class="t"><span class="pill">● Ongoing</span>Commercial, Kadana · 5% complete</div></div>
+    <div class="proj rv"><div class="img has" style="background: linear-gradient(rgba(6, 26, 64, 0.15), rgba(6, 26, 64, 0.6)), url(&quot;images/img-73.jpg&quot;) center center / cover;">Horana</div><div class="t"><span class="pill">● Ongoing</span>Industrial, Horana · 25% complete</div></div>
+    <div class="proj rv"><div class="img has" style="background: linear-gradient(rgba(6, 26, 64, 0.15), rgba(6, 26, 64, 0.6)), url(&quot;images/img-74.jpg&quot;) center center / cover;">Homagama</div><div class="t"><span class="pill">● Ongoing</span>Renovation, Homagama · 40% complete</div></div>
+    <div class="proj rv"><div class="img has" style="background: linear-gradient(rgba(6, 26, 64, 0.15), rgba(6, 26, 64, 0.6)), url(&quot;images/img-75.jpg&quot;) center center / cover;">Meegamuwa</div><div class="t"><span class="pill">● Ongoing</span>Residential, Meegamuwa · 75% complete</div></div>
+    
+    </div>
+  </div></section>
+</div>
+
+
+<div class="pg" id="contact">
+  <section class="hero pagehero"><div class="wrap">
+    <h1>Let's talk about<br>your project.</h1>
+    <p>Send us your plans or just an idea. We reply within one working day.</p>
+  </div></section>
+  <section class="s"><div class="wrap two">
+    <div class="info">
+      <p class="rv"><b>Office</b>35/32,Haritha uyana,Jayanthi road,Athurugiriya</p>   
+      <p class="rv"><b>Phone / WhatsApp</b><a href="https://wa.me/94715927591" target="_blank" rel="noopener">+94 71 592 7591</a></p>
+      <p class="rv"><b>Email</b>1chandanaconstruction@gmail.com</p>
+      <p class="rv"><b>Working hours</b>Mon to Sat, 8.00 am to 6.00 pm</p>
+      <p class="rv"><b>Follow us</b></p><div class="soc lt lg"><a data-soc="li" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener" href="https://linkedin.com/in/chandana-construction-95525b3a9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><text x="12" y="17.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="15.5" fill="currentColor" stroke="none">in</text></svg></a><a data-soc="gm" aria-label="Gmail" title="Gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=1chandanaconstruction%40gmail.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M3.5 7.5l8.5 6 8.5-6"></path></svg></a><a data-soc="fb" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener" href="https://www.facebook.com/share/1NG9a86DMS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><text x="12.5" y="19" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="21" fill="currentColor" stroke="none">f</text></svg></a><a data-soc="yt" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener" href="https://www.youtube.com/@CHANDANA_CONSTRUCTION"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4.5"></rect><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor"></path></svg></a><a data-soc="tt" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener" href="https://www.tiktok.com/@chandana_construction1?is_from_webapp=1&amp;sender_device=pc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.3a3.4 3.4 0 1 1-3.4-3.4"></path><path d="M14 3c.3 2.5 2 4.2 4.6 4.4"></path></svg></a></div><p class="rv">Let's Talk</p>
+    </div>
+    <form id="cf" onsubmit="sendMail(event)" class="rv">
+      <input id="fn" placeholder="Your name" required="">
+      <input id="fp" placeholder="Phone number" required="">
+      <input id="fe" type="email" placeholder="Email (optional)">
+      <textarea id="fm" placeholder="Tell us about your project" required=""></textarea>
+      <input id="fh" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+      <div class="fbtns"><button class="btn p" type="submit">Send Message</button><button class="btn wb" type="button" id="fw">Send on WhatsApp</button></div>
+      <p id="fs" role="status"></p>
+    </form>
+  </div></section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div class="grid">
+    <div><h3>Chandana Construction</h3><p>"Build For Genaration"</p></div>
+    <div><h3>Explore</h3><a href="#home" data-link="">Home</a><a href="#about" data-link="">About Us</a><a href="#services" data-link="">Services</a><a href="#projects" data-link="">Projects</a><a href="#contact" data-link="">Contact Us</a></div>
+    <div><h3>Contact</h3><p><a href="https://wa.me/94715927591" target="_blank" rel="noopener" style="display:inline;margin:0">+94 71 592 7591</a><br>1chandanaconstruction@gmail.com</p><div class="soc lg"><a data-soc="li" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener" href="https://linkedin.com/in/chandana-construction-95525b3a9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><text x="12" y="17.2" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="15.5" fill="currentColor" stroke="none">in</text></svg></a><a data-soc="gm" aria-label="Gmail" title="Gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=1chandanaconstruction%40gmail.com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"></rect><path d="M3.5 7.5l8.5 6 8.5-6"></path></svg></a><a data-soc="fb" aria-label="Facebook" title="Facebook" target="_blank" rel="noopener" href="https://www.facebook.com/share/1NG9a86DMS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><text x="12.5" y="19" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="21" fill="currentColor" stroke="none">f</text></svg></a><a data-soc="yt" aria-label="YouTube" title="YouTube" target="_blank" rel="noopener" href="https://www.youtube.com/@CHANDANA_CONSTRUCTION"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4.5"></rect><path d="M10 9.2l5 2.8-5 2.8z" fill="currentColor"></path></svg></a><a data-soc="tt" aria-label="TikTok" title="TikTok" target="_blank" rel="noopener" href="https://www.tiktok.com/@chandana_construction1?is_from_webapp=1&amp;sender_device=pc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.3a3.4 3.4 0 1 1-3.4-3.4"></path><path d="M14 3c.3 2.5 2 4.2 4.6 4.4"></path></svg></a></div></div>
+  </div>
+  <div class="copy">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; © <span id="yr">2026</span> Chandana Construction. All rights reserved.</div>
+</div></footer>
+
+<script type="text/plain" id="pdfdata"></script>
+<a class="wa" href="https://wa.me/94715927591?text=Hello%20Chandana%20Construction%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener">WhatsApp us</a> 
+
+<script>
+var pages=["home","about","services","projects","contact"],busy=false,L=document.getElementById("loader");
+function show(id){
+  pages.forEach(function(p){document.getElementById(p).classList.toggle("on",p===id)});
+  document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+id)});
+  document.querySelector("nav").classList.remove("open");window.scrollTo(0,0);document.title=id[0].toUpperCase()+id.slice(1)+" | Chandana Construction";window.parReq&&parReq();
+}
+function go(id,first){
+  if(busy)return;busy=true;L.classList.add("show");
+  setTimeout(function(){show(id);try{if(location.hash!=="#"+id)history.pushState(null,"","#"+id);}catch(err){}
+    setTimeout(function(){L.classList.remove("show");busy=false},first?500:250)},first?1800:1150);  
+}
+document.addEventListener("click",function(e){
+  var a=e.target.closest("a[data-link]");if(!a)return;e.preventDefault();
+  var id=a.getAttribute("href").slice(1);if(!document.getElementById(id).classList.contains("on"))go(id);else window.scrollTo(0,0);
+});
+window.addEventListener("popstate",function(){var id=location.hash.slice(1);if(pages.indexOf(id)>-1)go(id)});
+L.classList.add("show");
+var start=location.hash.slice(1);go(pages.indexOf(start)>-1?start:"home",true);
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+(function(){
+  var els=document.querySelectorAll('.card,.proj,.gp,.gi,.cl,.bkc,.vid,.stats .grid>div,.vm>div,section.s h2,section.s .lead,.band .wrap>*,.info p,form');
+  els.forEach(function(e){e.classList.add('rv');e.style.setProperty('--d',(Array.prototype.indexOf.call(e.parentElement.children,e)%4)*0.1+'s')});
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+  function count(el){var m=el.textContent.match(/^(\D*)(\d+)(.*)$/);if(!m)return;var n=+m[2],t0=performance.now();
+    (function f(now){var p=Math.min((now-t0)/1400,1);el.textContent=m[1]+Math.round(n*(1-Math.pow(1-p,3)))+m[3];if(p<1)requestAnimationFrame(f)})(t0)}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;
+    x.target.classList.add('in');io.unobserve(x.target);
+    if(x.target.closest('.stats')){var b=x.target.querySelector('b');if(b)count(b)}})},{threshold:.15});
+  els.forEach(function(e){io.observe(e)});
+})();
+function sendMail(e){e.preventDefault();
+  var g=function(i){return document.getElementById(i)},s=g('fs');
+  var d={name:g('fn').value,phone:g('fp').value,email:g('fe').value,message:g('fm').value,_subject:'New website enquiry - Chandana Construction',_template:'table',_captcha:'false'};
+  if(g('fh').value)return;
+  s.textContent='Sending...';
+  fetch('https://formsubmit.co/ajax/1chandanaconstruction@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)})
+  .then(function(r){if(!r.ok)throw 0;return r.json()})
+  .then(function(){g('cf').reset();s.textContent='Thank you! We received your message and will call you soon.'})
+  .catch(function(){s.textContent='Opening your email app to send the message...';
+    location.href='mailto:1chandanaconstruction@gmail.com?subject='+encodeURIComponent('Website enquiry')+'&body='+encodeURIComponent('Name: '+d.name+'\nPhone: '+d.phone+'\nEmail: '+d.email+'\n\n'+d.message)});
+}
+
+
+
+(function(){
+  var tick=false,calm=matchMedia('(prefers-reduced-motion:reduce)').matches,sp=document.getElementById('sp'),lb=document.getElementById('lb');
+  function upd(){tick=false;var vh=innerHeight;
+    if(!calm)document.querySelectorAll('.pg.on .gp>.ph,.pg.on .gi>.ph').forEach(function(x){var r=x.parentElement.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      x.style.setProperty('--py',Math.max(-34,Math.min(34,(r.top+r.height/2-vh/2)*-.09)).toFixed(1)+'px')});
+    var s=document.documentElement.scrollHeight-vh;sp.style.width=(s>0?scrollY/s*100:0)+'%'}
+  function req(){if(!tick){tick=true;requestAnimationFrame(upd)}}
+  window.parReq=req;addEventListener('scroll',req,{passive:true});addEventListener('resize',req);req();
+  document.addEventListener('click',function(e){
+    if(document.body.classList.contains('editing'))return;
+    var g=e.target.closest('.gi');if(g){var m=(g.firstElementChild.style.background||'').match(/url\(["']?(.*?)["']?\)/);
+      if(m){lb.firstElementChild.style.backgroundImage='url("'+m[1]+'")';lb.classList.add('on')}return}
+    if(e.target.closest('#lb'))lb.classList.remove('on');
+  });
+  addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
+})();
+
+
+window.setPdfLinks=function(){
+  var d=document.getElementById('pdfdata'),b=d&&d.textContent.trim();if(!b)return;
+  var s=atob(b),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);
+  var url=URL.createObjectURL(new Blob([u],{type:'application/pdf'}));
+  document.querySelectorAll('a.pl').forEach(function(a){a.setAttribute('href',url);a.setAttribute('target','_blank');a.setAttribute('rel','noopener')});
+};
+setPdfLinks();
+
+
+(function(){
+  var G=document.getElementById('go'),C=document.getElementById('go-c'),N=document.getElementById('go-n'),R=document.getElementById('rk'),
+      calm=matchMedia('(prefers-reduced-motion:reduce)').matches,tm=null,fl=null,url='',busy=false;
+  var NAMES=[['wa.me','WhatsApp'],['whatsapp.com','WhatsApp'],['mail.google.com','Gmail'],['facebook.com','Facebook'],['fb.com','Facebook'],['linkedin.com','LinkedIn'],['youtube.com','YouTube'],['youtu.be','YouTube'],['tiktok.com','TikTok'],['instagram.com','Instagram']];
+  function label(u){var h='';try{h=new URL(u).hostname.replace(/^www\./,'')}catch(e){}
+    for(var i=0;i<NAMES.length;i++){var n=NAMES[i][0];if(h===n||h.slice(-n.length-1)==='.'+n)return NAMES[i][1]}return h||'the link'}
+  function stop(){clearInterval(tm);clearTimeout(fl);G.classList.remove('on','fly');busy=false;window.__leaving=false;document.body.style.overflow=''}
+  function launch(){
+    if(calm){window.__leaving=true;location.href=url;return}
+    var dx=innerWidth+460,dy=innerHeight+460;
+    R.style.setProperty('--dx',dx+'px');R.style.setProperty('--dy',-dy+'px');R.style.setProperty('--rot',(Math.atan2(dx,dy)*180/Math.PI).toFixed(1)+'deg');
+    G.classList.add('fly');
+    fl=setTimeout(function(){window.__leaving=true;location.href=url},1500);
+  }
+  function go(u){
+    if(busy)return;busy=true;url=u;N.textContent=label(u);C.textContent='5';
+    G.classList.remove('on','fly');void G.offsetWidth;G.classList.add('on');document.body.style.overflow='hidden';
+    document.getElementById('go-x').focus();
+    var n=5;tm=setInterval(function(){n--;if(n>0){C.textContent=n;return}clearInterval(tm);C.textContent='0';launch()},1000);
+  }
+  window.goExt=go;
+  document.getElementById('go-x').addEventListener('click',stop);
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&G.classList.contains('on'))stop()});
+  addEventListener('pageshow',function(e){if(e.persisted)stop()});
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+    var a=e.target.closest('a[href]');if(!a||a.classList.contains('pl')||a.closest('nav'))return;
+    var h=a.getAttribute('href');if(!/^https?:/i.test(h))return;
+    try{if(location.host&&new URL(h,location.href).host===location.host)return}catch(x){return}
+    e.preventDefault();go(a.href);
+  });
+  var fw=document.getElementById('fw');
+  if(fw)fw.addEventListener('click',function(){
+    var f=document.getElementById('cf');if(!f.reportValidity())return;
+    var g=function(i){return document.getElementById(i).value};
+    go('https://wa.me/94715927591?text='+encodeURIComponent('Hello Chandana Construction,\nName: '+g('fn')+'\nPhone: '+g('fp')+(g('fe')?'\nEmail: '+g('fe'):'')+'\n\n'+g('fm')));
+  });
+})();
+
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.yp');if(!b)return;
+  var v=b.parentElement,id=v.getAttribute('data-yt');
+  if(location.protocol==='file:'){window.open('https://www.youtube.com/watch?v='+id,'_blank','noopener');return}
+  v.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+});
+</script>
+
+
+
+
+
+
+
+
+
+</body></html>
